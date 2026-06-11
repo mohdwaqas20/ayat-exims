@@ -6,410 +6,204 @@
 <title>AYAT EXIMS — Premium Finished Leather</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --cognac: #3E1C0C;
-  --mahogany: #5C2D1A;
-  --saddle: #8B4513;
-  --caramel: #A0522D;
-  --gold: #C9A227;
-  --light-gold: #E8C870;
-  --cream: #F5ECD7;
-  --warm-white: #FBF6EE;
-  --parchment: #E8D5B7;
-  --dark-ink: #1A0D06;
+:root{
+  --cognac:#3E1C0C;--mahogany:#5C2D1A;--saddle:#8B4513;--caramel:#A0522D;
+  --gold:#C9A227;--light-gold:#E8C870;--cream:#F5ECD7;--warm-white:#FBF6EE;
+  --parchment:#E8D5B7;--dark-ink:#1A0D06;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{
-  background:var(--cognac);
-  color:var(--cream);
-  font-family:'Jost',sans-serif;
-  font-weight:300;
-  overflow-x:hidden;
-}
+body{background:var(--cognac);color:var(--cream);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
 
-/* ── CANVAS ── */
+/* CANVAS */
 #leather-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1rem 5vw;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(26,13,6,0.82);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(201,162,39,0.2);
-  transition:all 0.4s;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 5vw;display:flex;align-items:center;justify-content:space-between;background:rgba(26,13,6,0.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,162,39,0.2);transition:all 0.4s;}
 nav.scrolled{background:rgba(26,13,6,0.97);border-bottom-color:rgba(201,162,39,0.35);}
-.nav-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.1rem,2.5vw,1.5rem);
-  font-weight:600;letter-spacing:0.12em;
-  color:var(--light-gold);text-decoration:none;
-  display:flex;align-items:center;gap:0.3rem;flex-shrink:0;
-}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);font-weight:600;letter-spacing:0.12em;color:var(--light-gold);text-decoration:none;display:flex;align-items:center;gap:0.3rem;flex-shrink:0;}
 .nav-logo img{height:36px;width:auto;object-fit:contain;}
 .nav-logo-text .thin{font-weight:300;color:var(--parchment);}
 .nav-links{display:flex;gap:2.2rem;list-style:none;}
-.nav-links a{
-  color:var(--parchment);text-decoration:none;
-  font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
-  opacity:0.65;transition:opacity 0.3s,color 0.3s;
-  position:relative;white-space:nowrap;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
-  background:var(--gold);transition:width 0.3s;
-}
+.nav-links a{color:var(--parchment);text-decoration:none;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.65;transition:opacity 0.3s,color 0.3s;position:relative;white-space:nowrap;}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s;}
 .nav-links a:hover{opacity:1;color:var(--light-gold);}
 .nav-links a:hover::after{width:100%;}
-.nav-cta{
-  background:transparent;border:1px solid var(--gold);
-  color:var(--light-gold);padding:0.55rem 1.4rem;
-  font-family:'Jost',sans-serif;font-size:0.72rem;
-  letter-spacing:0.18em;text-transform:uppercase;
-  cursor:pointer;text-decoration:none;white-space:nowrap;
-  transition:background 0.3s,color 0.3s,box-shadow 0.3s;
-}
+.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--light-gold);padding:0.55rem 1.4rem;font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background 0.3s,color 0.3s,box-shadow 0.3s;}
 .nav-cta:hover{background:var(--gold);color:var(--dark-ink);box-shadow:0 0 20px rgba(201,162,39,0.3);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
 .hamburger span{width:24px;height:1px;background:var(--cream);display:block;transition:0.3s;}
-.mobile-menu{
-  display:none;position:fixed;inset:0;
-  background:rgba(26,13,6,0.98);backdrop-filter:blur(10px);
-  z-index:200;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;
-}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(26,13,6,0.98);backdrop-filter:blur(10px);z-index:200;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;}
 .mobile-menu.open{display:flex;}
-.mobile-menu a{
-  font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,8vw,2.4rem);
-  color:var(--cream);text-decoration:none;transition:color 0.3s;
-}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,8vw,2.4rem);color:var(--cream);text-decoration:none;transition:color 0.3s;}
 .mobile-menu a:hover{color:var(--light-gold);}
-.mobile-close{
-  position:absolute;top:1.5rem;right:1.5rem;
-  background:none;border:none;color:var(--cream);font-size:2rem;cursor:pointer;
-}
+.mobile-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:var(--cream);font-size:2rem;cursor:pointer;}
 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;min-height:100svh;
-  display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(100px,14vh,140px) 5vw clamp(60px,8vh,100px);
-  position:relative;overflow:hidden;
-}
-.hero-grain{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity:0.5;
-}
-.hero-ornament{
-  position:absolute;right:4vw;top:50%;transform:translateY(-50%);
-  z-index:1;opacity:0.05;pointer-events:none;
-}
+/* HERO */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(100px,14vh,140px) 5vw clamp(60px,8vh,100px);position:relative;overflow:hidden;}
+.hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.5;}
+.hero-ornament{position:absolute;right:4vw;top:50%;transform:translateY(-50%);z-index:1;opacity:0.05;pointer-events:none;}
 .hero-ornament svg{width:clamp(280px,42vw,520px);height:clamp(280px,42vw,520px);}
 .hero-content{position:relative;z-index:2;max-width:100%;}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:0.8rem;
-  font-size:clamp(0.6rem,1.5vw,0.72rem);
-  letter-spacing:0.35em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:1.6rem;
-  opacity:0;animation:fadeUp 0.9s 0.2s forwards;
-}
-.hero-eyebrow::before{
-  content:'';width:28px;height:1px;
-  background:linear-gradient(to right,transparent,var(--gold));
-}
-.hero-heading{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2.6rem,7.5vw,7rem);
-  font-weight:300;line-height:1.03;
-  letter-spacing:-0.02em;
-  max-width:min(780px,90vw);
-  opacity:0;animation:fadeUp 1s 0.4s forwards;
-}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.8rem;font-size:clamp(0.6rem,1.5vw,0.72rem);letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;opacity:0;animation:fadeUp 0.9s 0.2s forwards;}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:linear-gradient(to right,transparent,var(--gold));}
+.hero-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,7.5vw,7rem);font-weight:300;line-height:1.03;letter-spacing:-0.02em;max-width:min(780px,90vw);opacity:0;animation:fadeUp 1s 0.4s forwards;}
 .hero-heading em{font-style:italic;color:var(--light-gold);font-weight:400;}
 .hero-heading .line2{display:block;padding-left:clamp(1rem,4vw,3rem);}
-.hero-sub{
-  margin-top:1.8rem;
-  font-size:clamp(0.85rem,1.8vw,1rem);
-  color:rgba(245,236,215,0.6);
-  max-width:min(440px,85vw);
-  line-height:1.85;font-weight:300;
-  opacity:0;animation:fadeUp 1s 0.6s forwards;
-}
-.hero-actions{
-  margin-top:2.8rem;
-  display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;
-  opacity:0;animation:fadeUp 1s 0.8s forwards;
-}
-.hero-stats{
-  position:absolute;bottom:5vh;right:5vw;z-index:2;
-  display:flex;gap:3rem;
-  opacity:0;animation:fadeUp 1s 1s forwards;
-}
+.hero-sub{margin-top:1.8rem;font-size:clamp(0.85rem,1.8vw,1rem);color:rgba(245,236,215,0.6);max-width:min(440px,85vw);line-height:1.85;font-weight:300;opacity:0;animation:fadeUp 1s 0.6s forwards;}
+.hero-actions{margin-top:2.8rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp 1s 0.8s forwards;}
+.hero-stats{position:absolute;bottom:5vh;right:5vw;z-index:2;display:flex;gap:3rem;opacity:0;animation:fadeUp 1s 1s forwards;}
 .stat-item{text-align:right;}
-.stat-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2rem,4vw,2.8rem);
-  font-weight:600;color:var(--light-gold);line-height:1;
-}
-.stat-label{
-  font-size:0.65rem;letter-spacing:0.22em;
-  text-transform:uppercase;color:rgba(245,236,215,0.38);margin-top:6px;
-}
-.scroll-indicator{
-  position:absolute;bottom:4vh;left:5vw;z-index:2;
-  display:flex;align-items:center;gap:1rem;
-  opacity:0;animation:fadeUp 1s 1.2s forwards;
-}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:600;color:var(--light-gold);line-height:1;}
+.stat-label{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,236,215,0.38);margin-top:6px;}
+.scroll-indicator{position:absolute;bottom:4vh;left:5vw;z-index:2;display:flex;align-items:center;gap:1rem;opacity:0;animation:fadeUp 1s 1.2s forwards;}
 .scroll-line{width:40px;height:1px;background:linear-gradient(to right,var(--gold),transparent);}
 .scroll-text{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(245,236,215,0.35);}
 
-/* ── BUTTONS ── */
-.btn-primary{
-  background:var(--saddle);border:1px solid var(--caramel);
-  color:var(--warm-white);padding:0.9rem 2.2rem;
-  font-family:'Jost',sans-serif;font-size:0.76rem;
-  letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;
-  text-decoration:none;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;
-  display:inline-block;
-}
+/* BUTTONS */
+.btn-primary{background:var(--saddle);border:1px solid var(--caramel);color:var(--warm-white);padding:0.9rem 2.2rem;font-family:'Jost',sans-serif;font-size:0.76rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;display:inline-block;}
 .btn-primary:hover{background:var(--caramel);transform:translateY(-2px);box-shadow:0 8px 24px rgba(62,28,12,0.5);}
-.btn-ghost{
-  color:var(--parchment);text-decoration:none;
-  font-size:0.76rem;letter-spacing:0.2em;text-transform:uppercase;
-  opacity:0.55;border-bottom:1px solid rgba(232,213,183,0.3);
-  padding-bottom:3px;transition:opacity 0.3s,border-color 0.3s,color 0.3s;
-  white-space:nowrap;
-}
+.btn-ghost{color:var(--parchment);text-decoration:none;font-size:0.76rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.55;border-bottom:1px solid rgba(232,213,183,0.3);padding-bottom:3px;transition:opacity 0.3s,border-color 0.3s,color 0.3s;white-space:nowrap;}
 .btn-ghost:hover{opacity:1;border-color:var(--gold);color:var(--light-gold);}
 
-/* ── MARQUEE ── */
-.marquee-section{
-  border-top:1px solid rgba(201,162,39,0.15);
-  border-bottom:1px solid rgba(201,162,39,0.15);
-  overflow:hidden;padding:1.1rem 0;
-  background:rgba(26,13,6,0.55);
-  position:relative;z-index:2;
-}
-.marquee-track{
-  display:flex;gap:2.5rem;width:max-content;
-  animation:marquee 28s linear infinite;
-}
-.marquee-track span{
-  font-size:0.68rem;letter-spacing:0.32em;
-  text-transform:uppercase;color:rgba(245,236,215,0.32);white-space:nowrap;
-}
+/* MARQUEE */
+.marquee-section{border-top:1px solid rgba(201,162,39,0.15);border-bottom:1px solid rgba(201,162,39,0.15);overflow:hidden;padding:1.1rem 0;background:rgba(26,13,6,0.55);position:relative;z-index:2;}
+.marquee-track{display:flex;gap:2.5rem;width:max-content;animation:marquee 28s linear infinite;}
+.marquee-track span{font-size:0.68rem;letter-spacing:0.32em;text-transform:uppercase;color:rgba(245,236,215,0.32);white-space:nowrap;}
 .marquee-track .dot{color:var(--gold);opacity:1;font-size:0.5rem;}
 
-/* ── ABOUT ── */
-.about-section{
-  padding:clamp(5rem,10vh,10rem) 5vw;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:clamp(3rem,6vw,8rem);align-items:center;
-  background:linear-gradient(180deg,rgba(26,13,6,0.95) 0%,rgba(62,28,12,0.9) 100%);
-  position:relative;z-index:2;
-}
-.about-label{
-  font-size:0.68rem;letter-spacing:0.36em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:1.4rem;
-  display:flex;align-items:center;gap:0.8rem;
-}
+/* ABOUT */
+.about-section{padding:clamp(5rem,10vh,10rem) 5vw;display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,8rem);align-items:center;background:linear-gradient(180deg,rgba(26,13,6,0.95) 0%,rgba(62,28,12,0.9) 100%);position:relative;z-index:2;}
+.about-label{font-size:0.68rem;letter-spacing:0.36em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;display:flex;align-items:center;gap:0.8rem;}
 .about-label::after{content:'';width:32px;height:1px;background:var(--gold);}
-.section-heading{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.9rem,4vw,3.6rem);
-  font-weight:300;line-height:1.12;margin-bottom:1.8rem;
-}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,3.6rem);font-weight:300;line-height:1.12;margin-bottom:1.8rem;}
 .section-heading em{font-style:italic;color:var(--light-gold);font-weight:400;}
-.about-body{
-  color:rgba(245,236,215,0.55);line-height:1.95;
-  font-size:clamp(0.82rem,1.5vw,0.95rem);margin-bottom:1.1rem;
-}
-.about-quote{
-  margin-top:2.2rem;padding:1.4rem 1.6rem;
-  border-left:2px solid var(--gold);
-  background:rgba(201,162,39,0.06);
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1rem,2vw,1.2rem);font-style:italic;
-  color:rgba(245,236,215,0.75);line-height:1.7;
-}
+.about-body{color:rgba(245,236,215,0.55);line-height:1.95;font-size:clamp(0.82rem,1.5vw,0.95rem);margin-bottom:1.1rem;}
+.about-quote{margin-top:2.2rem;padding:1.4rem 1.6rem;border-left:2px solid var(--gold);background:rgba(201,162,39,0.06);font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2vw,1.2rem);font-style:italic;color:rgba(245,236,215,0.75);line-height:1.7;}
 .about-visual{position:relative;}
-.about-img-frame{
-  width:100%;aspect-ratio:4/5;position:relative;overflow:hidden;
-}
-.about-img-frame img{
-  width:100%;height:100%;object-fit:cover;
-  filter:sepia(15%) saturate(1.1) brightness(0.85);
-  transition:transform 0.8s ease;display:block;
-}
+.about-img-frame{width:100%;aspect-ratio:4/5;position:relative;overflow:hidden;}
+.about-img-frame img{width:100%;height:100%;object-fit:cover;filter:sepia(15%) saturate(1.1) brightness(0.85);transition:transform 0.8s ease;display:block;}
 .about-img-frame:hover img{transform:scale(1.04);}
-.about-img-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(26,13,6,0.8) 0%,rgba(62,28,12,0.2) 40%,transparent 70%);
-}
-.about-badge{
-  position:absolute;bottom:-1.2rem;right:-1.2rem;
-  width:110px;height:110px;
-  border:1px solid rgba(201,162,39,0.4);
-  background:var(--dark-ink);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.3rem;
-}
-.badge-year{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.9rem;font-weight:600;color:var(--light-gold);line-height:1;
-}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,13,6,0.8) 0%,rgba(62,28,12,0.2) 40%,transparent 70%);}
+.about-badge{position:absolute;bottom:-1.2rem;right:-1.2rem;width:110px;height:110px;border:1px solid rgba(201,162,39,0.4);background:var(--dark-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.3rem;}
+.badge-year{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--light-gold);line-height:1;}
 .badge-since{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,236,215,0.4);}
 
-/* ── PILLARS ── */
-.pillars-section{
-  padding:0 5vw clamp(4rem,8vh,8rem);
-  background:rgba(26,13,6,0.95);position:relative;z-index:2;
-}
-.pillars{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid rgba(201,162,39,0.15);
-  border-left:1px solid rgba(201,162,39,0.15);
-}
-.pillar{
-  padding:clamp(1.5rem,3vw,2.8rem) clamp(1.2rem,2.5vw,2.2rem);
-  border-right:1px solid rgba(201,162,39,0.15);
-  border-bottom:1px solid rgba(201,162,39,0.15);
-  transition:background 0.4s;position:relative;overflow:hidden;
-}
-.pillar::before{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:linear-gradient(to right,var(--gold),transparent);
-  transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
-}
+/* PILLARS */
+.pillars-section{padding:0 5vw clamp(4rem,8vh,8rem);background:rgba(26,13,6,0.95);position:relative;z-index:2;}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(201,162,39,0.15);border-left:1px solid rgba(201,162,39,0.15);}
+.pillar{padding:clamp(1.5rem,3vw,2.8rem) clamp(1.2rem,2.5vw,2.2rem);border-right:1px solid rgba(201,162,39,0.15);border-bottom:1px solid rgba(201,162,39,0.15);transition:background 0.4s;position:relative;overflow:hidden;}
+.pillar::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
 .pillar:hover{background:rgba(139,69,19,0.12);}
 .pillar:hover::before{transform:scaleX(1);}
 .pillar-icon{font-size:1.4rem;margin-bottom:1.2rem;display:block;color:var(--gold);}
 .pillar-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;margin-bottom:0.7rem;color:var(--parchment);}
 .pillar-desc{font-size:clamp(0.75rem,1.3vw,0.82rem);color:rgba(245,236,215,0.4);line-height:1.75;}
 
-/* ── PRODUCTS ── */
+/* ═══════════════════════════════
+   PREMIUM FINISHES — CLEAN 4-CARD LAYOUT
+═══════════════════════════════ */
 .products-section{
   padding:clamp(4rem,8vh,8rem) 5vw;
   background:linear-gradient(180deg,rgba(62,28,12,0.92) 0%,rgba(26,13,6,0.97) 100%);
   position:relative;z-index:2;
+  text-align:center;
 }
-.products-header{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  margin-bottom:clamp(2rem,4vh,4.5rem);flex-wrap:wrap;gap:1rem;
-}
-.products-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:2px;background:rgba(201,162,39,0.12);
-}
-.product-card{
-  background:var(--dark-ink);
-  position:relative;overflow:hidden;cursor:pointer;
-  aspect-ratio:3/4;
-}
-.product-card:nth-child(1){grid-row:span 2;aspect-ratio:unset;}
-.product-card-bg{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94),filter 0.5s;
-  filter:brightness(0.65) saturate(0.85);
-}
-.product-card:hover .product-card-bg{transform:scale(1.08);filter:brightness(0.8) saturate(1.1);}
-.product-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(26,13,6,0.95) 0%,rgba(62,28,12,0.15) 55%,transparent 100%);
-  transition:background 0.4s;
-}
-.product-card:hover .product-overlay{
-  background:linear-gradient(to top,rgba(92,45,26,0.9) 0%,rgba(26,13,6,0.2) 60%,transparent 100%);
-}
-.product-info{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:clamp(1.2rem,3vw,2.2rem) clamp(1rem,2.5vw,2rem);
-  transform:translateY(38%);
-  transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
-}
-.product-card:hover .product-info{transform:translateY(0);}
-.product-tag{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
-.product-name{
+.products-section-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.2rem,2.5vw,1.55rem);
-  font-weight:400;margin-bottom:0.8rem;color:var(--warm-white);
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:300;color:var(--cream);
+  margin-bottom:clamp(2.5rem,5vh,4rem);
+  letter-spacing:0.02em;
 }
-.product-desc{
-  font-size:clamp(0.72rem,1.3vw,0.8rem);
-  color:rgba(245,236,215,0.52);line-height:1.75;
-  opacity:0;transition:opacity 0.4s 0.1s;
-}
-.product-card:hover .product-desc{opacity:1;}
-.product-link{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  margin-top:1.1rem;font-size:0.7rem;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--light-gold);text-decoration:none;
-  opacity:0;transition:opacity 0.4s 0.15s;
-}
-.product-card:hover .product-link{opacity:1;}
-.product-link::after{content:'→';}
 
-/* Product card BGs — real image with gradient fallback */
-.p1-bg{background:linear-gradient(160deg,#5C2D1A,#2a1208);}
-.p2-bg{background:linear-gradient(160deg,#2a2015,#1a1208);}
-.p3-bg{background:linear-gradient(160deg,#4a2810,#2a1208);}
-.p4-bg{background:linear-gradient(160deg,#3d2010,#1a0d06);}
-.p5-bg{background:linear-gradient(160deg,#3E1C0C,#6B3520);}
-.p6-bg{background:linear-gradient(160deg,#251510,#120a06);}
-
-/* ── WORKSHOP IMAGE ── */
-.workshop-section{
-  position:relative;z-index:2;
-  display:grid;grid-template-columns:1fr 1fr;
-  background:rgba(26,13,6,0.97);
+/* 4-CARD GRID */
+.finishes-four-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:clamp(1rem,2vw,1.5rem);
 }
-.workshop-img-col{
-  position:relative;overflow:hidden;
-  min-height:clamp(280px,50vw,520px);
+.finish-4card{
+  background:rgba(30,14,6,0.9);
+  border:1px solid rgba(201,162,39,0.18);
+  overflow:hidden;
+  cursor:pointer;
+  transition:border-color 0.35s,transform 0.35s,box-shadow 0.35s;
+  text-align:left;
 }
-.workshop-img-col img{
+.finish-4card:hover{
+  border-color:rgba(201,162,39,0.5);
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(0,0,0,0.5);
+}
+.finish-4card-img-wrap{
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  position:relative;
+}
+.finish-4card-img-wrap img{
   width:100%;height:100%;object-fit:cover;display:block;
-  filter:sepia(20%) saturate(1.05) brightness(0.8);
-  transition:transform 0.8s ease;
+  transition:transform 0.6s ease;
+  filter:brightness(0.88) saturate(0.95);
 }
-.workshop-img-col:hover img{transform:scale(1.04);}
-.workshop-img-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to right,transparent 50%,rgba(26,13,6,0.85) 100%);
+.finish-4card:hover .finish-4card-img-wrap img{transform:scale(1.06);}
+.finish-4card-body{
+  padding:1.4rem 1.6rem 1.6rem;
+  border-top:1px solid rgba(201,162,39,0.12);
 }
-.workshop-text-col{
-  padding:clamp(3rem,6vw,6rem) clamp(2rem,5vw,5rem);
-  display:flex;flex-direction:column;justify-content:center;
-  background:rgba(26,13,6,0.97);
+.finish-4card-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,1.8vw,1.2rem);
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--cream);
+  margin-bottom:0.4rem;
+}
+.finish-4card-sub{
+  font-size:0.65rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1.2rem;
+  opacity:0.85;
+}
+.finish-4card-btn{
+  display:block;
+  width:100%;
+  padding:0.7rem 1rem;
+  background:transparent;
+  border:1px solid rgba(201,162,39,0.3);
+  color:var(--parchment);
+  font-family:'Jost',sans-serif;
+  font-size:0.65rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  text-align:center;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background 0.3s,border-color 0.3s,color 0.3s;
+}
+.finish-4card-btn:hover{
+  background:rgba(201,162,39,0.15);
+  border-color:var(--gold);
+  color:var(--light-gold);
 }
 
-/* ── TEXTURES ── */
-.texture-section{
-  padding:clamp(4rem,8vh,8rem) 5vw;
-  background:rgba(26,13,6,0.97);
-  display:grid;grid-template-columns:1fr 1.3fr;
-  gap:clamp(3rem,6vw,7rem);align-items:center;
-  position:relative;z-index:2;
-}
-.texture-swatches-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:2px;
-  background:rgba(201,162,39,0.12);
-}
-.finish-swatch{
-  padding:clamp(1.4rem,3vw,2.2rem) clamp(1.2rem,2.5vw,1.8rem);
-  background:var(--dark-ink);cursor:pointer;transition:background 0.35s;
-  position:relative;overflow:hidden;
-}
-.finish-swatch::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(to right,var(--gold),transparent);
-  transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
-}
+/* WORKSHOP */
+.workshop-section{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;background:rgba(26,13,6,0.97);}
+.workshop-img-col{position:relative;overflow:hidden;min-height:clamp(280px,50vw,520px);}
+.workshop-img-col img{width:100%;height:100%;object-fit:cover;display:block;filter:sepia(20%) saturate(1.05) brightness(0.8);transition:transform 0.8s ease;}
+.workshop-img-col:hover img{transform:scale(1.04);}
+.workshop-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 50%,rgba(26,13,6,0.85) 100%);}
+.workshop-text-col{padding:clamp(3rem,6vw,6rem) clamp(2rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center;background:rgba(26,13,6,0.97);}
+
+/* TEXTURES */
+.texture-section{padding:clamp(4rem,8vh,8rem) 5vw;background:rgba(26,13,6,0.97);display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(3rem,6vw,7rem);align-items:center;position:relative;z-index:2;}
+.texture-swatches-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(201,162,39,0.12);}
+.finish-swatch{padding:clamp(1.4rem,3vw,2.2rem) clamp(1.2rem,2.5vw,1.8rem);background:var(--dark-ink);cursor:pointer;transition:background 0.35s;position:relative;overflow:hidden;}
+.finish-swatch::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
 .finish-swatch:hover{background:rgba(139,69,19,0.1);}
 .finish-swatch:hover::after{transform:scaleX(1);}
 .swatch-bar{width:32px;height:2px;background:var(--gold);margin-bottom:1rem;transition:width 0.3s;}
@@ -417,156 +211,76 @@ nav.scrolled{background:rgba(26,13,6,0.97);border-bottom-color:rgba(201,162,39,0
 .swatch-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;margin-bottom:0.4rem;color:var(--parchment);}
 .swatch-note{font-size:clamp(0.7rem,1.3vw,0.76rem);color:rgba(245,236,215,0.38);line-height:1.6;}
 
-/* ── TRUST ── */
-.trust-section{
-  padding:clamp(4rem,8vh,8rem) 5vw;
-  background:linear-gradient(135deg,rgba(62,28,12,0.97) 0%,rgba(26,13,6,0.99) 100%);
-  text-align:center;position:relative;z-index:2;
-}
+/* TRUST */
+.trust-section{padding:clamp(4rem,8vh,8rem) 5vw;background:linear-gradient(135deg,rgba(62,28,12,0.97) 0%,rgba(26,13,6,0.99) 100%);text-align:center;position:relative;z-index:2;}
 .trust-section .section-heading{max-width:640px;margin:1rem auto 1.4rem;}
-.trust-body{
-  max-width:560px;margin:0 auto 4rem;
-  color:rgba(245,236,215,0.5);line-height:1.95;
-  font-size:clamp(0.82rem,1.5vw,0.95rem);
-}
-.trust-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:2px;background:rgba(201,162,39,0.12);
-  max-width:980px;margin:0 auto;
-}
-.trust-card{
-  background:var(--dark-ink);padding:clamp(2rem,4vw,3.2rem) clamp(1.5rem,3vw,2.5rem);
-  text-align:left;transition:background 0.4s;
-}
+.trust-body{max-width:560px;margin:0 auto 4rem;color:rgba(245,236,215,0.5);line-height:1.95;font-size:clamp(0.82rem,1.5vw,0.95rem);}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,162,39,0.12);max-width:980px;margin:0 auto;}
+.trust-card{background:var(--dark-ink);padding:clamp(2rem,4vw,3.2rem) clamp(1.5rem,3vw,2.5rem);text-align:left;transition:background 0.4s;}
 .trust-card:hover{background:rgba(139,69,19,0.1);}
-.trust-num{
-  font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);
-  color:var(--light-gold);font-weight:300;line-height:1;margin-bottom:0.4rem;
-}
+.trust-num{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);color:var(--light-gold);font-weight:300;line-height:1;margin-bottom:0.4rem;}
 .trust-title{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(245,236,215,0.45);margin-bottom:1rem;}
 .trust-desc{font-size:clamp(0.78rem,1.3vw,0.85rem);color:rgba(245,236,215,0.42);line-height:1.75;}
-
-/* ── GOLD DIVIDER ── */
 .gold-divider{display:flex;align-items:center;gap:1.2rem;margin-bottom:3rem;}
 .gd-line{flex:1;height:1px;background:rgba(201,162,39,0.18);}
 .gd-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
 
-/* ── CONTACT ── */
-.contact-section{
-  padding:clamp(4rem,8vh,9rem) 5vw;
-  background:linear-gradient(135deg,#3E1C0C 0%,#2a1208 100%);
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:clamp(3rem,6vw,7rem);align-items:start;
-  position:relative;overflow:hidden;z-index:2;
-}
-.contact-section::before{
-  content:'';position:absolute;top:-10%;right:-5%;width:600px;height:600px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(201,162,39,0.06) 0%,transparent 65%);
-  pointer-events:none;
-}
-.contact-label{
-  font-size:0.68rem;letter-spacing:0.36em;text-transform:uppercase;
-  color:rgba(245,236,215,0.45);margin-bottom:1.4rem;
-  display:flex;align-items:center;gap:0.8rem;
-}
+/* CONTACT */
+.contact-section{padding:clamp(4rem,8vh,9rem) 5vw;background:linear-gradient(135deg,#3E1C0C 0%,#2a1208 100%);display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,7rem);align-items:start;position:relative;overflow:hidden;z-index:2;}
+.contact-section::before{content:'';position:absolute;top:-10%;right:-5%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,0.06) 0%,transparent 65%);pointer-events:none;}
+.contact-label{font-size:0.68rem;letter-spacing:0.36em;text-transform:uppercase;color:rgba(245,236,215,0.45);margin-bottom:1.4rem;display:flex;align-items:center;gap:0.8rem;}
 .contact-label::after{content:'';width:28px;height:1px;background:rgba(245,236,215,0.25);}
-.contact-heading{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.8rem,3.5vw,3.1rem);
-  font-weight:300;line-height:1.2;margin-bottom:1.4rem;
-}
+.contact-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,3.1rem);font-weight:300;line-height:1.2;margin-bottom:1.4rem;}
 .contact-desc{color:rgba(245,236,215,0.55);line-height:1.9;font-size:clamp(0.82rem,1.5vw,0.95rem);margin-bottom:2.5rem;}
 .contact-methods{display:flex;flex-direction:column;gap:0.9rem;}
-.contact-method{
-  display:flex;align-items:center;gap:1.1rem;
-  text-decoration:none;color:var(--cream);
-  padding:0.9rem 1.1rem;
-  border:1px solid rgba(201,162,39,0.15);
-  background:rgba(26,13,6,0.3);
-  transition:border-color 0.3s,background 0.3s;
-}
+.contact-method{display:flex;align-items:center;gap:1.1rem;text-decoration:none;color:var(--cream);padding:0.9rem 1.1rem;border:1px solid rgba(201,162,39,0.15);background:rgba(26,13,6,0.3);transition:border-color 0.3s,background 0.3s;}
 .contact-method:hover{border-color:rgba(201,162,39,0.4);background:rgba(139,69,19,0.15);}
-.method-icon{
-  width:40px;height:40px;flex-shrink:0;
-  border:1px solid rgba(201,162,39,0.25);
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.95rem;color:var(--gold);background:rgba(201,162,39,0.08);
-}
+.method-icon{width:40px;height:40px;flex-shrink:0;border:1px solid rgba(201,162,39,0.25);display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:var(--gold);background:rgba(201,162,39,0.08);}
 .method-label{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,236,215,0.38);margin-bottom:2px;}
 .method-value{font-size:clamp(0.8rem,1.5vw,0.9rem);color:var(--parchment);}
 .contact-form-side{display:flex;flex-direction:column;}
 .form-field{border-bottom:1px solid rgba(201,162,39,0.15);padding:1.2rem 0;transition:border-color 0.3s;}
 .form-field:focus-within{border-bottom-color:var(--gold);}
 .form-field label{display:block;font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(245,236,215,0.38);margin-bottom:0.6rem;}
-.form-field input,.form-field textarea,.form-field select{
-  width:100%;background:transparent;border:none;outline:none;
-  color:var(--cream);font-family:'Jost',sans-serif;
-  font-size:clamp(0.85rem,1.5vw,0.95rem);font-weight:300;resize:none;
-}
+.form-field input,.form-field textarea,.form-field select{width:100%;background:transparent;border:none;outline:none;color:var(--cream);font-family:'Jost',sans-serif;font-size:clamp(0.85rem,1.5vw,0.95rem);font-weight:300;resize:none;}
 .form-field textarea{height:75px;}
 .form-field select option{background:#3E1C0C;color:var(--cream);}
-.form-submit{
-  margin-top:2rem;background:var(--saddle);
-  border:1px solid var(--caramel);color:var(--warm-white);
-  padding:1rem 2.2rem;font-family:'Jost',sans-serif;
-  font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;
-  cursor:pointer;align-self:flex-start;
-  transition:background 0.3s,transform 0.2s,box-shadow 0.3s;
-}
+.form-submit{margin-top:2rem;background:var(--saddle);border:1px solid var(--caramel);color:var(--warm-white);padding:1rem 2.2rem;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;align-self:flex-start;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;}
 .form-submit:hover{background:var(--caramel);transform:translateY(-2px);box-shadow:0 8px 24px rgba(62,28,12,0.6);}
 
-/* ── FOOTER ── */
-footer{
-  padding:clamp(3rem,6vh,5.5rem) 5vw clamp(2rem,4vh,3rem);
-  background:var(--dark-ink);
-  border-top:1px solid rgba(201,162,39,0.15);
-  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;
-  gap:clamp(1.5rem,3vw,3rem);
-  position:relative;z-index:2;
-}
+/* FOOTER */
+footer{padding:clamp(3rem,6vh,5.5rem) 5vw clamp(2rem,4vh,3rem);background:var(--dark-ink);border-top:1px solid rgba(201,162,39,0.15);display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(1.5rem,3vw,3rem);position:relative;z-index:2;}
 .footer-brand .nav-logo{font-size:1.2rem;display:flex;margin-bottom:1.1rem;}
 .footer-tagline{font-size:0.8rem;color:rgba(245,236,215,0.38);line-height:1.85;max-width:270px;margin-bottom:1.6rem;}
 .footer-socials{display:flex;gap:0.7rem;}
-.social-link{
-  width:36px;height:36px;border:1px solid rgba(201,162,39,0.18);
-  display:flex;align-items:center;justify-content:center;
-  color:rgba(245,236,215,0.42);text-decoration:none;font-size:0.72rem;
-  transition:border-color 0.3s,color 0.3s,background 0.3s;
-}
+.social-link{width:36px;height:36px;border:1px solid rgba(201,162,39,0.18);display:flex;align-items:center;justify-content:center;color:rgba(245,236,215,0.42);text-decoration:none;font-size:0.72rem;transition:border-color 0.3s,color 0.3s,background 0.3s;}
 .social-link:hover{border-color:var(--gold);color:var(--light-gold);background:rgba(201,162,39,0.08);}
 .footer-col-title{font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.8rem;}
 .footer-links a{color:rgba(245,236,215,0.4);text-decoration:none;font-size:0.82rem;transition:color 0.3s;}
 .footer-links a:hover{color:var(--light-gold);}
 .footer-address{font-size:0.8rem;color:rgba(245,236,215,0.38);line-height:1.85;}
-.footer-bottom{
-  grid-column:1/-1;border-top:1px solid rgba(201,162,39,0.1);
-  padding-top:2rem;display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:0.8rem;
-}
+.footer-bottom{grid-column:1/-1;border-top:1px solid rgba(201,162,39,0.1);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;}
 .footer-copy{font-size:0.7rem;color:rgba(245,236,215,0.22);letter-spacing:0.06em;}
 
-/* ── REVEAL ── */
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s,transform 0.8s;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-d1{transition-delay:0.1s;}
 .reveal-d2{transition-delay:0.2s;}
+.reveal-d3{transition-delay:0.3s;}
 
-/* ── ANIMATIONS ── */
+/* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-/* ═══════════════════════════════
-   RESPONSIVE BREAKPOINTS
-═══════════════════════════════ */
-
-/* Tablet landscape: ≤1100px */
+/* RESPONSIVE */
+@media(max-width:1200px){
+  .finishes-four-grid{grid-template-columns:repeat(2,1fr);}
+}
 @media(max-width:1100px){
   .about-section{grid-template-columns:1fr;gap:3rem;}
   .about-visual{max-width:500px;margin:0 auto;}
-  .products-grid{grid-template-columns:1fr 1fr;}
-  .product-card:nth-child(1){grid-row:span 1;aspect-ratio:3/4;}
   .trust-grid{grid-template-columns:1fr 1fr;}
   .contact-section{grid-template-columns:1fr;gap:3.5rem;}
   footer{grid-template-columns:1fr 1fr;}
@@ -578,16 +292,13 @@ footer{
   .workshop-img-overlay{background:linear-gradient(to bottom,transparent 50%,rgba(26,13,6,0.85) 100%);}
   .hero-ornament{opacity:0.03;}
 }
-
-/* Tablet portrait: ≤768px */
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none;}
   .hamburger{display:flex;}
   .hero-stats{display:none;}
   .scroll-indicator{display:none;}
   .hero-heading .line2{padding-left:1rem;}
-  .products-grid{grid-template-columns:1fr;}
-  .product-card:nth-child(1){grid-row:span 1;aspect-ratio:3/4;}
+  .finishes-four-grid{grid-template-columns:repeat(2,1fr);}
   .trust-grid{grid-template-columns:1fr;}
   footer{grid-template-columns:1fr;gap:2rem;}
   .footer-brand .footer-tagline{max-width:100%;}
@@ -596,11 +307,8 @@ footer{
   .texture-swatches-grid{grid-template-columns:1fr;}
   .hero-ornament{display:none;}
   .about-badge{right:0;bottom:-1rem;}
-  .products-header .btn-ghost{display:none;}
   .trust-section .trust-body{padding:0 1rem;}
 }
-
-/* Mobile: ≤480px */
 @media(max-width:480px){
   nav{padding:0.85rem 4vw;}
   .hero{padding:90px 5vw 60px;}
@@ -615,6 +323,7 @@ footer{
   .marquee-track{animation-duration:18s;}
   .about-badge{width:90px;height:90px;}
   .badge-year{font-size:1.6rem;}
+  .finishes-four-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -625,11 +334,10 @@ footer{
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMenu()">✕</button>
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#products" onclick="toggleMenu()">Finishes</a>
-  <a href="#textures" onclick="toggleMenu()">Materials</a>
-  <a href="#trust" onclick="toggleMenu()">Our Promise</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#" onclick="toggleMenu()">HOME</a>
+  <a href="#about" onclick="toggleMenu()">ABOUT</a>
+  <a href="#products" onclick="toggleMenu()">FINISHES</a>
+  <a href="#contact" onclick="toggleMenu()">CONTACT</a>
 </div>
 
 <!-- NAV -->
@@ -699,21 +407,21 @@ footer{
 <div class="marquee-section">
   <div class="marquee-track">
     <span>Premium Finished Leather</span><span class="dot">◆</span>
-    <span>3D Print Finish</span><span class="dot">◆</span>
-    <span>Crystal Finish</span><span class="dot">◆</span>
-    <span>Reversible Leather</span><span class="dot">◆</span>
-    <span>Anelein Finish</span><span class="dot">◆</span>
-    <span>Belt Leather</span><span class="dot">◆</span>
-    <span>Kanpur Heritage</span><span class="dot">◆</span>
-    <span>International Quality</span><span class="dot">◆</span>
+    <span>Kanpur, India</span><span class="dot">◆</span>
+    <span>29+ Unique Finishes</span><span class="dot">◆</span>
+    <span>Est. 2009</span><span class="dot">◆</span>
+    <span>Handcrafted Precision</span><span class="dot">◆</span>
+    <span>Export Quality</span><span class="dot">◆</span>
+    <span>Bulk Supply</span><span class="dot">◆</span>
+    <span>Custom Development</span><span class="dot">◆</span>
     <span>Premium Finished Leather</span><span class="dot">◆</span>
-    <span>3D Print Finish</span><span class="dot">◆</span>
-    <span>Crystal Finish</span><span class="dot">◆</span>
-    <span>Reversible Leather</span><span class="dot">◆</span>
-    <span>Anelein Finish</span><span class="dot">◆</span>
-    <span>Belt Leather</span><span class="dot">◆</span>
-    <span>Kanpur Heritage</span><span class="dot">◆</span>
-    <span>International Quality</span><span class="dot">◆</span>
+    <span>Kanpur, India</span><span class="dot">◆</span>
+    <span>29+ Unique Finishes</span><span class="dot">◆</span>
+    <span>Est. 2009</span><span class="dot">◆</span>
+    <span>Handcrafted Precision</span><span class="dot">◆</span>
+    <span>Export Quality</span><span class="dot">◆</span>
+    <span>Bulk Supply</span><span class="dot">◆</span>
+    <span>Custom Development</span><span class="dot">◆</span>
   </div>
 </div>
 
@@ -722,18 +430,18 @@ footer{
   <div class="reveal">
     <p class="about-label">Our Story</p>
     <h2 class="section-heading">Craftsmanship rooted in<br><em>over a decade</em> of mastery</h2>
-    <p class="about-body">At AYAT EXIMS, we are dedicated to producing premium-quality finished leather with a strong foundation in craftsmanship, precision, and innovation. Established in 2009 and based in Kanpur — India's premier leather hub — we have consistently set the benchmark for excellence.</p>
-    <p class="about-body">We specialize in finished leather and belt leather, offering a diverse portfolio of over 29 unique prints and textures. Each piece is developed through handmade finishing techniques combined with modern processing, ensuring unmatched durability and refined aesthetics.</p>
-    <blockquote class="about-quote">Blending tradition with innovation to create leather that stands out in every aspect.</blockquote>
+    <p class="about-body">Since 2009, Ayat Exims has been at the forefront of premium finished leather production in Kanpur — India's leather capital. We combine traditional artisan knowledge with modern finishing techniques to produce leather that meets the exacting standards of global brands.</p>
+    <p class="about-body">Every hide that leaves our facility has been treated with the same rigorous attention to detail, consistency, and quality that has defined our reputation for fifteen years.</p>
+    <blockquote class="about-quote">"We don't just supply leather — we supply the confidence that comes with knowing your material is exceptional."</blockquote>
   </div>
   <div class="about-visual reveal reveal-d2">
     <div class="about-img-frame">
-      <img src="https://www.ayatexims.co.in/workspace/IMG_8871.JPG.jpeg" alt="Ayat Exims Workshop"/>
+      <img src="https://www.ayatexims.co.in/workspace/IMG_8871.JPG.jpeg" alt="Ayat Exims Craftsmanship" onerror="this.style.background='linear-gradient(160deg,#5C2D1A,#2a1208)';this.style.display='block';"/>
       <div class="about-img-overlay"></div>
     </div>
     <div class="about-badge">
-      <div class="badge-year">2009</div>
-      <div class="badge-since">Est.</div>
+      <div class="badge-year">15+</div>
+      <div class="badge-since">Years</div>
     </div>
   </div>
 </section>
@@ -742,119 +450,104 @@ footer{
 <div class="pillars-section">
   <div class="pillars reveal">
     <div class="pillar">
-      <span class="pillar-icon">⬡</span>
-      <div class="pillar-title">Premium Quality</div>
-      <p class="pillar-desc">Every hide passes through rigorous quality checks at each stage of our process. No compromises, ever.</p>
-    </div>
-    <div class="pillar">
       <span class="pillar-icon">◈</span>
-      <div class="pillar-title">Trusted Partner</div>
-      <p class="pillar-desc">Long-term relationships built on transparent communication, consistent supply, and on-time delivery.</p>
-    </div>
-    <div class="pillar">
-      <span class="pillar-icon">◇</span>
-      <div class="pillar-title">Timeless Design</div>
-      <p class="pillar-desc">29+ finishes spanning classic textures to contemporary patterns — a range built to endure every trend.</p>
+      <div class="pillar-title">29+ Finishes</div>
+      <p class="pillar-desc">One of India's most diverse portfolios — spanning classic textures to contemporary patterns built to endure every trend.</p>
     </div>
     <div class="pillar">
       <span class="pillar-icon">◉</span>
-      <div class="pillar-title">Sustainable Choice</div>
-      <p class="pillar-desc">Environmentally conscious practices at every stage of production, reducing impact without cutting quality.</p>
+      <div class="pillar-title">Bulk Ready</div>
+      <p class="pillar-desc">Capable of fulfilling large-scale orders with consistent quality at every stage of production and delivery.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">◎</span>
+      <div class="pillar-title">Custom Finish</div>
+      <p class="pillar-desc">Bespoke texture development for brands with a specific vision — we engineer leather that matches your exact brief.</p>
+    </div>
+    <div class="pillar">
+      <span class="pillar-icon">◇</span>
+      <div class="pillar-title">Export Quality</div>
+      <p class="pillar-desc">ISO-aligned production standards, quality-controlled batches, and timely delivery for domestic and international buyers.</p>
     </div>
   </div>
 </div>
 
-<!-- PRODUCTS -->
+<!-- ═══════════════════════════════
+     PREMIUM FINISHES — BEAUTIFUL REDESIGN
+═══════════════════════════════ -->
 <section class="products-section" id="products">
-  <div class="products-header reveal">
-    <div>
-      <p class="about-label" style="margin-bottom:1rem;">Our Collection</p>
-      <h2 class="section-heading" style="margin-bottom:0;">Premium <em>Finishes</em></h2>
-    </div>
-    <a class="btn-ghost" href="#contact">Request Full Catalogue →</a>
-  </div>
-  <div class="products-grid reveal">
 
-    <div class="product-card">
-      <div class="product-card-bg p1-bg" style="background-image:url('https://www.ayatexims.co.in/product images/3d.jpeg');"></div>
-      <div class="product-overlay"></div>
-      <div class="product-info">
-        <div class="product-tag">Signature Collection</div>
-        <div class="product-name">3D Print Finish</div>
-        <p class="product-desc">A sculptural finish that creates dramatic depth and dimension. Ideal for premium handbags, footwear, and high-end accessories that demand instant recognition.</p>
-        <a class="product-link" href="#contact">Inquire for Bulk</a>
+  <h2 class="products-section-title reveal">Our Premium Finishes</h2>
+
+  <div class="finishes-four-grid reveal reveal-d1">
+
+    <!-- 3D PRINT FINISH -->
+    <div class="finish-4card">
+      <div class="finish-4card-img-wrap">
+        <img src="https://www.ayatexims.co.in/product images/3d.jpeg" alt="3D Print Finish"
+             onerror="this.parentElement.style.background='linear-gradient(160deg,#5C2D1A,#2a1208)';this.style.display='none';"/>
+      </div>
+      <div class="finish-4card-body">
+        <div class="finish-4card-name">3D Print Finish</div>
+        <div class="finish-4card-sub">Custom Inquiry</div>
+        <a class="finish-4card-btn" href="#contact">View Details</a>
       </div>
     </div>
 
-    <div class="product-card">
-      <div class="product-card-bg p2-bg" style="background-image:url('https://www.ayatexims.co.in/product images/Riversable (2).jpeg');"></div>
-      <div class="product-overlay"></div>
-      <div class="product-info">
-        <div class="product-tag">Versatile Series</div>
-        <div class="product-name">Reversible Leather</div>
-        <p class="product-desc">Two distinct textures, one material. Engineered for maximum versatility in luxury apparel and accessory design.</p>
-        <a class="product-link" href="#contact">Inquire for Bulk</a>
+    <!-- REVERSIBLE LEATHER -->
+    <div class="finish-4card">
+      <div class="finish-4card-img-wrap">
+        <img src="https://www.ayatexims.co.in/product images/Riversable (2).jpeg" alt="Reversible Leather"
+             onerror="this.parentElement.style.background='linear-gradient(160deg,#2a2015,#1a1208)';this.style.display='none';"/>
+      </div>
+      <div class="finish-4card-body">
+        <div class="finish-4card-name">Reversible Leather</div>
+        <div class="finish-4card-sub">Custom Inquiry</div>
+        <a class="finish-4card-btn" href="#contact">View Details</a>
       </div>
     </div>
 
-    <div class="product-card">
-      <div class="product-card-bg p3-bg" style="background-image:url('https://www.ayatexims.co.in/product images/crystal.jpeg');"></div>
-      <div class="product-overlay"></div>
-      <div class="product-info">
-        <div class="product-tag">Luxury Finish</div>
-        <div class="product-name">Crystal Finish</div>
-        <p class="product-desc">A luminous surface treatment that catches light with understated elegance. Perfect for evening wear and premium accessories.</p>
-        <a class="product-link" href="#contact">Inquire for Bulk</a>
+    <!-- CRYSTAL FINISH -->
+    <div class="finish-4card">
+      <div class="finish-4card-img-wrap">
+        <img src="https://www.ayatexims.co.in/product images/crystal.jpeg" alt="Crystal Finish"
+             onerror="this.parentElement.style.background='linear-gradient(160deg,#4a2810,#2a1208)';this.style.display='none';"/>
+      </div>
+      <div class="finish-4card-body">
+        <div class="finish-4card-name">Crystal Finish</div>
+        <div class="finish-4card-sub">Custom Inquiry</div>
+        <a class="finish-4card-btn" href="#contact">View Details</a>
       </div>
     </div>
 
-    <div class="product-card">
-      <div class="product-card-bg p4-bg" style="background-image:url('https://www.ayatexims.co.in/leather knowledge/anelein finish.jpg');"></div>
-      <div class="product-overlay"></div>
-      <div class="product-info">
-        <div class="product-tag">Heritage Finish</div>
-        <div class="product-name">Anelein Finish</div>
-        <p class="product-desc">Inspired by traditional tanning craftsmanship, the Anelein finish carries the soul of Kanpur's leather legacy.</p>
-        <a class="product-link" href="#contact">Inquire for Bulk</a>
+    <!-- ANELEIN FINISH -->
+    <div class="finish-4card">
+      <div class="finish-4card-img-wrap">
+        <img src="https://www.ayatexims.co.in/leather knowledge/anelein finish.jpg" alt="Anelein Finish"
+             onerror="this.parentElement.style.background='linear-gradient(160deg,#3d2010,#1a0d06)';this.style.display='none';"/>
       </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-card-bg p5-bg"></div>
-      <div class="product-overlay"></div>
-      <div class="product-info">
-        <div class="product-tag">Belt Series</div>
-        <div class="product-name">Belt Leather</div>
-        <p class="product-desc">Structured, durable, and refined. Our belt leather combines tensile strength with finish quality that elevates every accessory brand.</p>
-        <a class="product-link" href="#contact">Inquire for Bulk</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="product-card-bg p6-bg"></div>
-      <div class="product-overlay"></div>
-      <div class="product-info">
-        <div class="product-tag">Custom Range</div>
-        <div class="product-name">Custom Finishes</div>
-        <p class="product-desc">Have something specific in mind? We develop custom textures and prints to match your brand's precise vision.</p>
-        <a class="product-link" href="#contact">Discuss Your Needs</a>
+      <div class="finish-4card-body">
+        <div class="finish-4card-name">Anelein Finish</div>
+        <div class="finish-4card-sub">Custom Inquiry</div>
+        <a class="finish-4card-btn" href="#contact">View Details</a>
       </div>
     </div>
 
   </div>
+
 </section>
 
-<!-- WORKSHOP / TRUST IMAGE -->
+<!-- WORKSHOP -->
 <div class="workshop-section">
   <div class="workshop-img-col">
-    <img src="https://www.ayatexims.co.in/workspace/IMG_8871.JPG.jpeg" alt="Ayat Exims Workspace"/>
+    <img src="https://www.ayatexims.co.in/workspace/IMG_8871.JPG.jpeg" alt="Ayat Exims Workspace" onerror="this.style.background='linear-gradient(160deg,#5C2D1A,#2a1208)';"/>
     <div class="workshop-img-overlay"></div>
   </div>
   <div class="workshop-text-col reveal">
     <p class="about-label">A Promise of Trust</p>
     <h2 class="section-heading">Quality you can <em>feel,</em> trust you can rely on</h2>
-    <p class="about-body">We understand that in today's competitive market, consistency and trust are essential. That is why we prioritize long-term relationships with our clients by offering dependable service, transparent communication, and timely delivery.</p>
-    <p class="about-body">Sustainability and responsibility are also at the core of our operations. We continuously strive to adopt environmentally conscious practices and improve our processes to reduce impact while maintaining the highest level of quality.</p>
+    <p class="about-body">We understand that in today's competitive market, consistency and trust are essential. We prioritize long-term relationships with dependable service, transparent communication, and timely delivery.</p>
+    <p class="about-body">Sustainability and responsibility are at the core of our operations. We continuously strive to adopt environmentally conscious practices while maintaining the highest level of quality.</p>
     <a class="btn-primary" href="https://www.ayatexims.co.in/about.html" style="margin-top:2rem;display:inline-block;">Discover Our Journey</a>
   </div>
 </div>
@@ -865,40 +558,16 @@ footer{
     <p class="about-label">Material Intelligence</p>
     <h2 class="section-heading">Every finish tells<br>a <em>different story</em></h2>
     <p class="about-body" style="margin-bottom:1rem;">From classic vegetable-tanned surfaces to avant-garde 3D textures, our range spans the full spectrum of leather artistry. Each finish is a deliberate expression — chosen to evoke a specific feeling, to serve a specific purpose.</p>
-    <p class="about-body">We supply brands, exporters, and international buyers who understand that the leather they choose is the first thing their customers feel. Make it count.</p>
+    <p class="about-body">We supply brands, exporters, and international buyers who understand that the leather they choose is the first thing their customers feel.</p>
     <a class="btn-primary" href="#contact" style="margin-top:2.2rem;display:inline-block;">Request Samples</a>
   </div>
   <div class="texture-swatches-grid reveal reveal-d2">
-    <div class="finish-swatch">
-      <div class="swatch-bar"></div>
-      <div class="swatch-name">Smooth & Matte</div>
-      <p class="swatch-note">Clean, minimal surface — the foundation of understated luxury</p>
-    </div>
-    <div class="finish-swatch">
-      <div class="swatch-bar"></div>
-      <div class="swatch-name">Embossed Grain</div>
-      <p class="swatch-note">Deep-pressed patterns that add character and depth</p>
-    </div>
-    <div class="finish-swatch">
-      <div class="swatch-bar"></div>
-      <div class="swatch-name">Metallic Sheen</div>
-      <p class="swatch-note">Reflective coatings for high-fashion accessory lines</p>
-    </div>
-    <div class="finish-swatch">
-      <div class="swatch-bar"></div>
-      <div class="swatch-name">Wax Pull-Up</div>
-      <p class="swatch-note">Ages beautifully — develops a unique patina with time</p>
-    </div>
-    <div class="finish-swatch">
-      <div class="swatch-bar"></div>
-      <div class="swatch-name">Nubuck Texture</div>
-      <p class="swatch-note">Velvety surface with premium hand-feel for luxury goods</p>
-    </div>
-    <div class="finish-swatch">
-      <div class="swatch-bar"></div>
-      <div class="swatch-name">Exotic Pattern</div>
-      <p class="swatch-note">Python, croc, and abstract prints for editorial and couture</p>
-    </div>
+    <div class="finish-swatch"><div class="swatch-bar"></div><div class="swatch-name">Smooth &amp; Matte</div><p class="swatch-note">Clean, minimal surface — the foundation of understated luxury</p></div>
+    <div class="finish-swatch"><div class="swatch-bar"></div><div class="swatch-name">Embossed Grain</div><p class="swatch-note">Deep-pressed patterns that add character and depth</p></div>
+    <div class="finish-swatch"><div class="swatch-bar"></div><div class="swatch-name">Metallic Sheen</div><p class="swatch-note">Reflective coatings for high-fashion accessory lines</p></div>
+    <div class="finish-swatch"><div class="swatch-bar"></div><div class="swatch-name">Wax Pull-Up</div><p class="swatch-note">Ages beautifully — develops a unique patina with time</p></div>
+    <div class="finish-swatch"><div class="swatch-bar"></div><div class="swatch-name">Nubuck Texture</div><p class="swatch-note">Velvety surface with premium hand-feel for luxury goods</p></div>
+    <div class="finish-swatch"><div class="swatch-bar"></div><div class="swatch-name">Exotic Pattern</div><p class="swatch-note">Python, croc, and abstract prints for editorial and couture</p></div>
   </div>
 </section>
 
@@ -1012,9 +681,8 @@ footer{
     <div class="footer-col-title">Information</div>
     <ul class="footer-links">
       <li><a href="https://www.ayatexims.co.in/about.html">About Us</a></li>
-      <li><a href="https://www.ayatexims.co.in/accessories.html">Leather Accessories</a></li>
+      <li><a href="#products">Premium Finishes</a></li>
       <li><a href="https://www.ayatexims.co.in/corporate.html">Corporate Policies</a></li>
-      <li><a href="https://www.ayatexims.co.in/leatherknowledge.html">Leather Knowledge</a></li>
       <li><a href="#contact">Bulk Enquiries</a></li>
     </ul>
   </div>
@@ -1049,7 +717,6 @@ function handleSubmit(btn){
   const email=document.getElementById('f-email').value.trim();
   const type=document.getElementById('f-type').value;
   const msg=document.getElementById('f-msg').value.trim();
-
   if(!name||!msg){
     btn.textContent='Please fill Name & Message';
     btn.style.background='#7a3010';
@@ -1071,7 +738,6 @@ function handleSubmit(btn){
   function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
   resize();
   window.addEventListener('resize',resize,{passive:true});
-
   const particles=[];
   class Particle{
     constructor(){this.reset();}
@@ -1096,21 +762,17 @@ function handleSubmit(btn){
     }
   }
   for(let i=0;i<100;i++){const p=new Particle();p.life=Math.random()*p.maxLife;particles.push(p);}
-
   const orbs=[
     {x:0.75,y:0.45,r:0.38,c:[139,69,19],s:0.0004,ph:0},
     {x:0.15,y:0.65,r:0.28,c:[92,45,26],s:0.0003,ph:2.1},
     {x:0.55,y:0.2,r:0.24,c:[62,28,12],s:0.0005,ph:4.2},
   ];
-
   function animate(){
     requestAnimationFrame(animate);frame++;
     ctx.clearRect(0,0,W,H);
-    // bg
     const bg=ctx.createLinearGradient(0,0,0,H);
     bg.addColorStop(0,'#1a0d06');bg.addColorStop(0.5,'#2a1208');bg.addColorStop(1,'#1a0d06');
     ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
-    // orbs
     orbs.forEach(o=>{
       const t=frame*o.s+o.ph;
       const cx=(o.x+Math.sin(t)*0.06)*W,cy=(o.y+Math.cos(t*0.7)*0.07)*H;
@@ -1121,9 +783,7 @@ function handleSubmit(btn){
       g.addColorStop(1,`rgba(${o.c[0]},${o.c[1]},${o.c[2]},0)`);
       ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
     });
-    // particles
     particles.forEach(p=>{p.update();p.draw();});
-    // vignette
     const vg=ctx.createRadialGradient(W/2,H/2,H*0.2,W/2,H/2,H*0.85);
     vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(0,0,0,0.5)');
     ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);
