@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AYAT EXIMS — Premium Finished Leather</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink: #111822;
+  --slate: #333740;
+  --ash: #6C6A6A;
+  --earth: #4F362A;
+  --mocha: #745850;
+  --blush: #F3B699;
+  --cream: #F8F2EC;
+  --gold: #B8845A;
+  --light-gold: #D4A574;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.2rem 5vw;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(17,24,34,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(183,132,90,0.15);
+  transition: all 0.4s;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--blush);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--cream); font-weight: 300; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.3s, color 0.3s;
+}
+.nav-links a:hover { opacity: 1; color: var(--blush); }
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--blush);
+  padding: 0.55rem 1.4rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--ink); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { width: 24px; height: 1px; background: var(--cream); display: block; transition: 0.3s; }
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 10vh 5vw 5vh;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 75% 50%, rgba(79,54,42,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 70%, rgba(51,55,64,0.5) 0%, transparent 60%),
+    var(--ink);
+}
+.hero-lines {
+  position: absolute; right: 0; top: 0; bottom: 0; width: 50%;
+  opacity: 0.06;
+  background: repeating-linear-gradient(
+    -45deg, var(--gold) 0, var(--gold) 1px, transparent 1px, transparent 60px
+  );
+}
+.hero-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp 0.9s 0.2s forwards;
+}
+.hero-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  max-width: 720px;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp 1s 0.4s forwards;
+}
+.hero-heading em {
+  font-style: italic;
+  color: var(--blush);
+}
+.hero-sub {
+  margin-top: 1.8rem;
+  font-size: 1.05rem;
+  color: rgba(248,242,236,0.6);
+  max-width: 460px;
+  line-height: 1.8;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp 1s 0.6s forwards;
+}
+.hero-actions {
+  margin-top: 2.8rem;
+  display: flex; gap: 1.2rem; align-items: center;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp 1s 0.8s forwards;
+}
+.btn-primary {
+  background: var(--earth);
+  border: none;
+  color: var(--cream);
+  padding: 0.9rem 2.2rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--mocha); transform: translateY(-2px); }
+.btn-ghost {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  border-bottom: 1px solid rgba(248,242,236,0.3);
+  padding-bottom: 2px;
+  transition: opacity 0.3s;
+}
+.btn-ghost:hover { opacity: 1; }
+.hero-stats {
+  position: absolute; bottom: 5vh; right: 5vw; z-index: 1;
+  display: flex; gap: 3rem;
+  opacity: 0; animation: fadeUp 1s 1s forwards;
+}
+.stat-item { text-align: right; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--blush);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(248,242,236,0.4);
+  margin-top: 4px;
+}
+.scroll-indicator {
+  position: absolute; bottom: 4vh; left: 5vw; z-index: 1;
+  display: flex; align-items: center; gap: 1rem;
+  opacity: 0; animation: fadeUp 1s 1.2s forwards;
+}
+.scroll-line {
+  width: 40px; height: 1px;
+  background: linear-gradient(to right, var(--gold), transparent);
+}
+.scroll-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(248,242,236,0.4);
+}
+/* DIVIDER */
+.section-divider {
+  display: flex; align-items: center; gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+.divider-line { flex: 1; height: 1px; background: rgba(183,132,90,0.2); }
+.divider-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+/* MARQUEE */
+.marquee-section {
+  border-top: 1px solid rgba(183,132,90,0.12);
+  border-bottom: 1px solid rgba(183,132,90,0.12);
+  overflow: hidden;
+  padding: 1.2rem 0;
+  background: rgba(255,255,255,0.015);
+}
+.marquee-track {
+  display: flex; gap: 3rem; width: max-content;
+  animation: marquee 22s linear infinite;
+}
+.marquee-track span {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(248,242,236,0.35);
+  white-space: nowrap;
+}
+.marquee-track .dot { color: var(--gold); opacity: 1; }
+/* ABOUT */
+.about-section {
+  padding: 9rem 5vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+.about-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin-bottom: 1.8rem;
+}
+.section-heading em { font-style: italic; color: var(--blush); }
+.about-body {
+  color: rgba(248,242,236,0.6);
+  line-height: 1.9;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+.about-quote {
+  margin-top: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(248,242,236,0.7);
+  line-height: 1.7;
+}
+.about-visual {
+  position: relative;
+}
+.about-img-frame {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--slate);
+  position: relative;
+  overflow: hidden;
+}
+.about-img-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+}
+.about-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(17,24,34,0.7) 0%, transparent 50%);
+}
+.about-badge {
+  position: absolute; bottom: -1.5rem; right: -1.5rem;
+  width: 130px; height: 130px;
+  border: 1px solid rgba(183,132,90,0.3);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--ink);
+}
+.badge-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--blush);
+  font-weight: 600;
+  line-height: 1;
+}
+.badge-since {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(248,242,236,0.4);
+  margin-top: 6px;
+}
+/* PILLARS */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(183,132,90,0.12);
+  border-left: 1px solid rgba(183,132,90,0.12);
+  margin: 0 5vw 9rem;
+}
+.pillar {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba(183,132,90,0.12);
+  border-bottom: 1px solid rgba(183,132,90,0.12);
+  transition: background 0.4s;
+}
+.pillar:hover { background: rgba(79,54,42,0.12); }
+.pillar-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  display: block;
+}
+.pillar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+}
+.pillar-desc {
+  font-size: 0.82rem;
+  color: rgba(248,242,236,0.45);
+  line-height: 1.7;
+}
+/* PRODUCTS */
+.products-section { padding: 0 5vw 9rem; }
+.products-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 4rem;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: rgba(183,132,90,0.15);
+}
+.product-card {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 3/4;
+  transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.product-card:nth-child(1) { grid-row: span 2; aspect-ratio: unset; }
+.product-card-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.4s;
+  opacity: 0.55;
+}
+.product-card:hover .product-card-bg { transform: scale(1.07); opacity: 0.75; }
+.product-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(17,24,34,0.9) 0%, rgba(17,24,34,0.1) 50%, transparent 100%);
+  transition: background 0.4s;
+}
+.product-card:hover .product-overlay {
+  background: linear-gradient(to top, rgba(79,54,42,0.85) 0%, rgba(17,24,34,0.2) 60%, transparent 100%);
+}
+.product-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 2rem 1.8rem;
+  transform: translateY(40%);
+  transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.product-card:hover .product-info { transform: translateY(0); }
+.product-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  color: var(--cream);
+}
+.product-desc {
+  font-size: 0.8rem;
+  color: rgba(248,242,236,0.55);
+  line-height: 1.7;
+  opacity: 0;
+  transition: opacity 0.4s 0.1s;
+}
+.product-card:hover .product-desc { opacity: 1; }
+.product-link {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-top: 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blush);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.4s 0.15s;
+}
+.product-card:hover .product-link { opacity: 1; }
+.product-link::after { content: '→'; }
+/* Color swatches for products */
+.p1-bg { background: linear-gradient(135deg, #3d2d25 0%, #6b4a3a 40%, #2a1f18 100%); }
+.p2-bg { background: linear-gradient(135deg, #2d3840 0%, #4a5a65 40%, #1a252c 100%); }
+.p3-bg { background: linear-gradient(135deg, #4a3528 0%, #7a5840 40%, #302018 100%); }
+.p4-bg { background: linear-gradient(135deg, #1a2830 0%, #3d5560 40%, #0d181e 100%); }
+.p5-bg { background: linear-gradient(135deg, #3d2a1e 0%, #664433 40%, #251810 100%); }
+.p6-bg { background: linear-gradient(135deg, #2a2028 0%, #504045 40%, #1a1318 100%); }
+/* TEXTURE INTRO */
+.texture-section {
+  padding: 9rem 5vw;
+  background: rgba(255,255,255,0.018);
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: center;
+}
+.texture-finishes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(183,132,90,0.15);
+}
+.finish-swatch {
+  padding: 2rem;
+  background: var(--ink);
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+}
+.finish-swatch::before {
+  content: '';
+  display: block;
+  width: 40px; height: 3px;
+  background: var(--gold);
+  margin-bottom: 1rem;
+  transform-origin: left;
+  transition: width 0.3s;
+}
+.finish-swatch:hover { background: rgba(79,54,42,0.15); }
+.finish-swatch:hover::before { width: 60px; }
+.swatch-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+.swatch-note {
+  font-size: 0.75rem;
+  color: rgba(248,242,236,0.4);
+  letter-spacing: 0.05em;
+}
+/* TRUST SECTION */
+.trust-section {
+  padding: 9rem 5vw;
+  text-align: center;
+}
+.trust-section .section-heading { max-width: 600px; margin: 1rem auto 1.5rem; }
+.trust-body {
+  max-width: 580px;
+  margin: 0 auto 4rem;
+  color: rgba(248,242,236,0.55);
+  line-height: 1.9;
+  font-size: 0.95rem;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: rgba(183,132,90,0.15);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.trust-card {
+  background: var(--ink);
+  padding: 3rem 2.5rem;
+  text-align: left;
+}
+.trust-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--blush);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.trust-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(248,242,236,0.5);
+  margin-bottom: 1rem;
+}
+.trust-desc {
+  font-size: 0.85rem;
+  color: rgba(248,242,236,0.45);
+  line-height: 1.7;
+}
+/* CONTACT */
+.contact-section {
+  padding: 9rem 5vw;
+  background: var(--earth);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.contact-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(248,242,236,0.5);
+  margin-bottom: 1.5rem;
+}
+.contact-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+.contact-desc {
+  color: rgba(248,242,236,0.6);
+  line-height: 1.85;
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+.contact-methods { display: flex; flex-direction: column; gap: 1.2rem; }
+.contact-method {
+  display: flex; align-items: center; gap: 1rem;
+  text-decoration: none; color: var(--cream);
+  transition: opacity 0.3s;
+}
+.contact-method:hover { opacity: 0.7; }
+.method-icon {
+  width: 44px; height: 44px;
+  border: 1px solid rgba(248,242,236,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.method-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(248,242,236,0.4);
+  margin-bottom: 2px;
+}
+.method-value { font-size: 0.9rem; }
+.contact-form-side { display: flex; flex-direction: column; gap: 0; }
+.form-field {
+  border-bottom: 1px solid rgba(248,242,236,0.15);
+  padding: 1.2rem 0;
+}
+.form-field label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(248,242,236,0.4);
+  margin-bottom: 0.6rem;
+}
+.form-field input, .form-field textarea, .form-field select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  resize: none;
+}
+.form-field textarea { height: 80px; }
+.form-field select option { background: var(--earth); color: var(--cream); }
+.form-submit {
+  margin-top: 2rem;
+  background: var(--ink);
+  border: none;
+  color: var(--cream);
+  padding: 1rem 2.5rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.3s, transform 0.2s;
+}
+.form-submit:hover { background: var(--mocha); transform: translateY(-2px); }
+/* FOOTER */
+footer {
+  padding: 5rem 5vw 3rem;
+  border-top: 1px solid rgba(183,132,90,0.12);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+.footer-brand .nav-logo { font-size: 1.3rem; display: block; margin-bottom: 1rem; }
+.footer-tagline {
+  font-size: 0.82rem;
+  color: rgba(248,242,236,0.4);
+  line-height: 1.8;
+  max-width: 260px;
+  margin-bottom: 1.5rem;
+}
+.footer-socials { display: flex; gap: 0.8rem; }
+.social-link {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(183,132,90,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(248,242,236,0.5);
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: border-color 0.3s, color 0.3s;
+}
+.social-link:hover { border-color: var(--gold); color: var(--blush); }
+.footer-col-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.footer-links a {
+  color: rgba(248,242,236,0.45);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--blush); }
+.footer-address {
+  font-size: 0.82rem;
+  color: rgba(248,242,236,0.4);
+  line-height: 1.8;
+}
+.footer-bottom {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(183,132,90,0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(248,242,236,0.25);
+  letter-spacing: 0.05em;
+}
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .about-section { grid-template-columns: 1fr; gap: 3rem; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .product-card:nth-child(1) { grid-row: span 1; aspect-ratio: 3/4; }
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .contact-section { grid-template-columns: 1fr; gap: 4rem; }
+  footer { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { grid-column: 1 / -1; }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .texture-section { grid-template-columns: 1fr; gap: 3rem; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .hero-stats { display: none; }
+  .products-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .footer-brand .footer-tagline { max-width: 100%; }
+  footer { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .pillars { grid-template-columns: 1fr; }
+  .products-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .texture-finishes { grid-template-columns: 1fr; }
+}
+/* Mobile nav menu */
+.mobile-menu {
+  display: none;
+  position: fixed; inset: 0; background: rgba(17,24,34,0.97);
+  z-index: 200; flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--blush); }
+.mobile-close {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  background: none; border: none; color: var(--cream);
+  font-size: 2rem; cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#products" onclick="toggleMenu()">Finishes</a>
+  <a href="#trust" onclick="toggleMenu()">Our Promise</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>AYAT</span> EXIMS</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Finishes</a></li>
+    <li><a href="#textures">Materials</a></li>
+    <li><a href="#trust">Our Promise</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Inquire Now</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <p class="hero-eyebrow">Kanpur, India — Est. 2009</p>
+  <h1 class="hero-heading">Leather that speaks<br>before words <em>do.</em></h1>
+  <p class="hero-sub">29 unique finishes. Handcrafted precision. Premium quality that transforms your products from ordinary to coveted.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#products">Explore Finishes</a>
+    <a class="btn-ghost" href="#contact">Request Samples</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">29+</div>
+      <div class="stat-label">Unique Finishes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Years Crafting</div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span class="scroll-text">Scroll to discover</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>Premium Finished Leather</span><span class="dot">◆</span>
+    <span>3D Print Finish</span><span class="dot">◆</span>
+    <span>Crystal Finish</span><span class="dot">◆</span>
+    <span>Reversible Leather</span><span class="dot">◆</span>
+    <span>Anelein Finish</span><span class="dot">◆</span>
+    <span>Belt Leather</span><span class="dot">◆</span>
+    <span>Kanpur Heritage</span><span class="dot">◆</span>
+    <span>International Quality</span><span class="dot">◆</span>
+    <span>Premium Finished Leather</span><span class="dot">◆</span>
+    <span>3D Print Finish</span><span class="dot">◆</span>
+    <span>Crystal Finish</span><span class="dot">◆</span>
+    <span>Reversible Leather</span><span class="dot">◆</span>
+    <span>Anelein Finish</span><span class="dot">◆</span>
+    <span>Belt Leather</span><span class="dot">◆</span>
+    <span>Kanpur Heritage</span><span class="dot">◆</span>
+    <span>International Quality</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-left reveal">
+    <p class="about-label">Our Story</p>
+    <h2 class="section-heading">Craftsmanship rooted in<br><em>over a decade</em> of mastery</h2>
+    <p class="about-body">At AYAT EXIMS, we are dedicated to producing premium-quality finished leather with a strong foundation in craftsmanship, precision, and innovation. Established in 2009 and based in Kanpur — India's premier leather hub — we have consistently set the benchmark for excellence.</p>
+    <p class="about-body">We specialize in finished leather and belt leather, offering a diverse portfolio of over 29 unique prints and textures. Each piece is developed through handmade finishing techniques combined with modern processing, ensuring unmatched durability and refined aesthetics.</p>
+    <blockquote class="about-quote">Blending tradition with innovation to create leather that stands out in every aspect.</blockquote>
+  </div>
+  <div class="about-visual reveal">
+    <div class="about-img-frame">
+      <img src="https://www.ayatexims.co.in/workspace/IMG_8871.JPG.jpeg" alt="Ayat Exims Workshop" onerror="this.style.display='none'"/>
+      <div class="about-img-overlay"></div>
+    </div>
+    <div class="about-badge">
+      <div class="badge-year">2009</div>
+      <div class="badge-since">Est.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<div class="pillars reveal">
+  <div class="pillar">
+    <span class="pillar-icon">⬡</span>
+    <div class="pillar-title">Premium Quality</div>
+    <p class="pillar-desc">Every hide passes through rigorous quality checks at each stage of our process. No compromises.</p>
+  </div>
+  <div class="pillar">
+    <span class="pillar-icon">◈</span>
+    <div class="pillar-title">Trusted Partner</div>
+    <p class="pillar-desc">Long-term relationships built on transparent communication, consistent supply, and timely delivery.</p>
+  </div>
+  <div class="pillar">
+    <span class="pillar-icon">◇</span>
+    <div class="pillar-title">Timeless Design</div>
+    <p class="pillar-desc">29+ finishes spanning classic textures to contemporary patterns — a range built to endure trends.</p>
+  </div>
+  <div class="pillar">
+    <span class="pillar-icon">◉</span>
+    <div class="pillar-title">Sustainable Choice</div>
+    <p class="pillar-desc">Environmentally conscious practices at every stage of production, reducing impact without cutting quality.</p>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="products-header reveal">
+    <div>
+      <p class="about-label">Our Collection</p>
+      <h2 class="section-heading" style="margin-bottom:0;">Premium <em>Finishes</em></h2>
+    </div>
+    <a class="btn-ghost" href="#contact">Request Full Catalogue →</a>
+  </div>
+  <div class="products-grid reveal">
+    <div class="product-card">
+      <div class="product-card-bg p1-bg"></div>
+      <div class="product-overlay"></div>
+      <div class="product-info">
+        <div class="product-tag">Signature Collection</div>
+        <div class="product-name">3D Print Finish</div>
+        <p class="product-desc">A sculptural finish that creates dramatic depth and dimension. Ideal for premium handbags, footwear, and high-end accessories that demand instant recognition.</p>
+        <a class="product-link" href="#contact">Inquire for Bulk</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-bg p2-bg"></div>
+      <div class="product-overlay"></div>
+      <div class="product-info">
+        <div class="product-tag">Versatile Series</div>
+        <div class="product-name">Reversible Leather</div>
+        <p class="product-desc">Two distinct textures, one material. Engineered for maximum versatility in luxury apparel and accessory design.</p>
+        <a class="product-link" href="#contact">Inquire for Bulk</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-bg p3-bg"></div>
+      <div class="product-overlay"></div>
+      <div class="product-info">
+        <div class="product-tag">Luxury Finish</div>
+        <div class="product-name">Crystal Finish</div>
+        <p class="product-desc">A luminous surface treatment that catches light with understated elegance. Perfect for evening wear and premium accessories.</p>
+        <a class="product-link" href="#contact">Inquire for Bulk</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-bg p4-bg"></div>
+      <div class="product-overlay"></div>
+      <div class="product-info">
+        <div class="product-tag">Heritage Finish</div>
+        <div class="product-name">Anelein Finish</div>
+        <p class="product-desc">Inspired by traditional tanning craftsmanship, the Anelein finish carries the soul of Kanpur's leather legacy.</p>
+        <a class="product-link" href="#contact">Inquire for Bulk</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-bg p5-bg"></div>
+      <div class="product-overlay"></div>
+      <div class="product-info">
+        <div class="product-tag">Belt Series</div>
+        <div class="product-name">Belt Leather</div>
+        <p class="product-desc">Structured, durable, and refined. Our belt leather combines tensile strength with a finish quality that elevates every accessory brand.</p>
+        <a class="product-link" href="#contact">Inquire for Bulk</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-card-bg p6-bg"></div>
+      <div class="product-overlay"></div>
+      <div class="product-info">
+        <div class="product-tag">Custom Range</div>
+        <div class="product-name">Custom Finishes</div>
+        <p class="product-desc">Have something specific in mind? We develop custom textures and prints to match your brand's precise vision.</p>
+        <a class="product-link" href="#contact">Discuss Your Needs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEXTURES -->
+<section class="texture-section" id="textures">
+  <div class="reveal">
+    <p class="about-label">Material Intelligence</p>
+    <h2 class="section-heading">Every finish tells<br>a <em>different story</em></h2>
+    <p class="about-body" style="margin-bottom:1rem;">From classic vegetable-tanned surfaces to avant-garde 3D textures, our range spans the full spectrum of leather artistry. Each finish is a deliberate expression — chosen to evoke a specific feeling, to serve a specific purpose.</p>
+    <p class="about-body">We supply brands, exporters, and international buyers who understand that the leather they choose is the first thing their customers feel. Make it count.</p>
+    <a class="btn-primary" href="#contact" style="margin-top:2rem;display:inline-block;">Request Samples</a>
+  </div>
+  <div class="texture-finishes reveal">
+    <div class="finish-swatch">
+      <div class="swatch-name">Smooth & Matte</div>
+      <p class="swatch-note">Clean, minimal surface — the foundation of understated luxury</p>
+    </div>
+    <div class="finish-swatch">
+      <div class="swatch-name">Embossed Grain</div>
+      <p class="swatch-note">Deep-pressed patterns that add character and hide imperfections</p>
+    </div>
+    <div class="finish-swatch">
+      <div class="swatch-name">Metallic Sheen</div>
+      <p class="swatch-note">Reflective coatings for high-fashion and evening accessory lines</p>
+    </div>
+    <div class="finish-swatch">
+      <div class="swatch-name">Wax Pull-Up</div>
+      <p class="swatch-note">Ages beautifully — develops a unique patina with use and time</p>
+    </div>
+    <div class="finish-swatch">
+      <div class="swatch-name">Nubuck Texture</div>
+      <p class="swatch-note">Velvety surface with a premium hand-feel for luxury interiors</p>
+    </div>
+    <div class="finish-swatch">
+      <div class="swatch-name">Exotic Pattern</div>
+      <p class="swatch-note">Python, croc, and abstract prints for editorial and couture</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-section" id="trust">
+  <p class="about-label reveal">Why Partner With Us</p>
+  <h2 class="section-heading reveal">A promise built on <em>results,</em><br>not rhetoric</h2>
+  <p class="trust-body reveal">We understand that in today's competitive market, consistency and trust are essential. We prioritize long-term relationships with dependable service, transparent communication, and timely delivery — every time.</p>
+  <div class="trust-grid reveal">
+    <div class="trust-card">
+      <div class="trust-num">29+</div>
+      <div class="trust-title">Unique Finishes</div>
+      <p class="trust-desc">One of India's most diverse portfolios of premium finished leather, all produced under one roof in Kanpur.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-num">15+</div>
+      <div class="trust-title">Years of Experience</div>
+      <p class="trust-desc">Since 2009, we have refined our processes, built our expertise, and earned the trust of brands across India.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-num">100%</div>
+      <div class="trust-title">Quality Controlled</div>
+      <p class="trust-desc">Every batch is inspected at each stage. We ship only what we would proudly put our name on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="reveal">
+    <p class="contact-label">Get In Touch</p>
+    <h2 class="contact-heading">Ready to work<br>with the best?</h2>
+    <p class="contact-desc">Whether you need bulk orders, premium finishes, or custom leather development, we're here to make it happen. Reach out — our team responds within 24 hours.</p>
+    <div class="contact-methods">
+      <a class="contact-method" href="https://wa.me/919555725023" target="_blank">
+        <div class="method-icon">✉</div>
+        <div>
+          <div class="method-label">WhatsApp</div>
+          <div class="method-value">+91 95557 25023</div>
+        </div>
+      </a>
+      <a class="contact-method" href="tel:+919555725023">
+        <div class="method-icon">☎</div>
+        <div>
+          <div class="method-label">Call Us</div>
+          <div class="method-value">+91 95557 25023</div>
+        </div>
+      </a>
+      <a class="contact-method" href="mailto:ayatexims1@gmail.com">
+        <div class="method-icon">@</div>
+        <div>
+          <div class="method-label">Email</div>
+          <div class="method-value">ayatexims1@gmail.com</div>
+        </div>
+      </a>
+      <div class="contact-method">
+        <div class="method-icon">◎</div>
+        <div>
+          <div class="method-label">Visit</div>
+          <div class="method-value">1165, Wazidpur Lane, Chakeri Ward, Kanpur, UP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form-side reveal">
+    <div class="form-field">
+      <label>Your Name</label>
+      <input type="text" placeholder="Full name"/>
+    </div>
+    <div class="form-field">
+      <label>Company / Brand</label>
+      <input type="text" placeholder="Company name"/>
+    </div>
+    <div class="form-field">
+      <label>Email Address</label>
+      <input type="email" placeholder="your@email.com"/>
+    </div>
+    <div class="form-field">
+      <label>Inquiry Type</label>
+      <select>
+        <option value="">Select a category</option>
+        <option>Bulk Order Inquiry</option>
+        <option>Sample Request</option>
+        <option>Custom Finish Development</option>
+        <option>Pricing & Catalogue</option>
+        <option>Export / International</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label>Your Message</label>
+      <textarea placeholder="Tell us about your requirements..."></textarea>
+    </div>
+    <button class="form-submit" onclick="handleSubmit(event)">Send Inquiry →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a class="nav-logo" href="#"><span>AYAT</span> EXIMS</a>
+    <p class="footer-tagline">Redefining Leather, One Finish at a Time. From classic textures to contemporary patterns — 29+ unique variations crafted with perfection.</p>
+    <div class="footer-socials">
+      <a class="social-link" href="https://www.instagram.com/ayat_exims" target="_blank">IG</a>
+      <a class="social-link" href="https://www.facebook.com/share/1FgCAEFWpT/" target="_blank">FB</a>
+      <a class="social-link" href="https://wa.me/919555725023" target="_blank">WA</a>
+    </div>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigation</div>
+    <ul class="footer-links">
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#products">Premium Finishes</a></li>
+      <li><a href="#textures">Materials</a></li>
+      <li><a href="#trust">Our Promise</a></li>
+      <li><a href="#contact">Contact Support</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Information</div>
+    <ul class="footer-links">
+      <li><a href="#products">Leather Collection</a></li>
+      <li><a href="#contact">Leather Accessories</a></li>
+      <li><a href="#contact">Corporate Policies</a></li>
+      <li><a href="#contact">Leather Knowledge</a></li>
+      <li><a href="#contact">Bulk Enquiries</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Address</div>
+    <p class="footer-address">1165, Wazidpur Lane<br>Chakeri Ward, Kanpur<br>Uttar Pradesh — 208010<br>India</p>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Ayat Exims. All Rights Reserved.</p>
+    <p class="footer-copy">Premium Finished Leather — Kanpur, India</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function handleSubmit(e) {
+  const btn = e.target;
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#4F362A';
+  setTimeout(() => { btn.textContent = 'Send Inquiry →'; btn.style.background = ''; }, 3000);
+}
+</script>
+</body>
+</html>
